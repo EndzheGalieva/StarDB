@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './person-details.css';
 import SwapiService from "../../services/swapi-service";
+import ErrorButton from "../error-button/error-button";
+
 
 export default class PersonDetails extends Component {
 
@@ -20,7 +22,6 @@ export default class PersonDetails extends Component {
       this.updatePerson();
     }
   }
-
 
   updatePerson() {
     const { personId } = this.props;
@@ -42,15 +43,13 @@ export default class PersonDetails extends Component {
     }
 
     const { id, name, gender,
-             birthYear, eyeColor } = this.state.person;
-
+              birthYear, eyeColor } = this.state.person;
 
     return (
       <div className="person-details card">
         <img className="person-image"
           src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-             alt="character" />
-
+           alt="character"/>
         <div className="card-body">
           <h4>{name} {this.props.personId}</h4>
           <ul className="list-group list-group-flush">
@@ -67,6 +66,7 @@ export default class PersonDetails extends Component {
               <span>{eyeColor}</span>
             </li>
           </ul>
+            <ErrorButton />
         </div>
       </div>
     )
