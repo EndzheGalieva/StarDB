@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ItemList from '../item-list/item-list';
 import PersonDetails from '../person-details/person-details';
 import './people-page.css';
@@ -9,7 +9,7 @@ import ErrorIndicator from "../error-indicator";
 class ErrorBoundry extends Component {
 
     state = {
-      hasError: false
+        hasError: false
     };
 
     componentDidCatch() {
@@ -21,11 +21,11 @@ class ErrorBoundry extends Component {
 
     render() {
 
-      if (this.state.hasError) {
-        return <ErrorIndicator />
-      }
+        if (this.state.hasError) {
+            return <ErrorIndicator/>
+        }
 
-      return this.props.children;
+        return this.props.children;
     }
 }
 
@@ -38,32 +38,31 @@ export default class PeoplePage extends Component {
     };
 
 
-
     onPersonSelected = (selectedPerson) => {
-        this.setState({ selectedPerson });
+        this.setState({selectedPerson});
     };
 
     render() {
         if (this.state.hasError) {
-            return <ErrorIndicator />;
+            return <ErrorIndicator/>;
         }
 
-    const itemList = (
-        <ItemList
-            onItemSelected={this.onPersonSelected}
-            getData={this.swapiService.getAllPeople}
-            renderItem={({name, gender, birthYear}) => (
-            `${name} (${gender}, ${birthYear})`)}/>
-    );
+        const itemList = (
+            <ItemList
+                onItemSelected={this.onPersonSelected}
+                getData={this.swapiService.getAllPeople}
+                renderItem={({name, gender, birthYear}) => (
+                    `${name} (${gender}, ${birthYear})`)}/>
+        );
 
-    const personDetails = (
-        <ErrorBoundry>
-        <PersonDetails personId={this.state.selectedPerson} />
-        </ErrorBoundry>
-    );
+        const personDetails = (
+            <ErrorBoundry>
+                <PersonDetails personId={this.state.selectedPerson}/>
+            </ErrorBoundry>
+        );
 
         return (
-             <Row left={itemList} right={personDetails} />
+            <Row left={itemList} right={personDetails}/>
         );
     }
 }
