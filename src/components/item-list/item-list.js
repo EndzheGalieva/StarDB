@@ -1,5 +1,6 @@
 import React from 'react';
 import './item-list.css';
+import SwapiService from "../../services/swapi-service";
 
 const ItemList = (props) => {
 
@@ -24,6 +25,13 @@ const ItemList = (props) => {
     </ul>
   );
 };
+
+ItemList.defaultProps = {
+  onItemSelected: () => {
+  }
+};
+
+const {getAllPeople} = new SwapiService();
 
 export default ItemList;
 
