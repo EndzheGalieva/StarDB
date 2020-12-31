@@ -105,3 +105,7 @@ U
 %src/components/item-list/item-list.js,5/f/5f78dd0e092460a9b79302e276cc29709ccac249
 K
 src/components/app/index.js,3/1/31c7bf9333c9a809705e7cbe615aaa71997d8777
+<
+package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
+U
+%src/components/hoc-helpers/compose.js,a/3/a31d09c427280234417af41781a683ecf3d230ab
